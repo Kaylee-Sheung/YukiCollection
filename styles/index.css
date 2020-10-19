@@ -1,0 +1,190 @@
+
+/* reset style */
+
+body, ul {
+  margin: 0;
+  font-family: Georgia, Times New Roman, serif;
+}
+
+h1 {
+  font-weight: normal;
+  font-size: 3.5em;
+}
+
+/* box model */
+
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* background image */
+
+body {
+  background-image: url("../images/background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: all 0.8s ease;
+}
+
+.wrapper {
+  width: 90%;
+  margin: auto;
+  text-align: center;
+}
+
+/* header and navbar */
+
+header {
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0);
+}
+
+nav {
+  display: block;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.navbar li {
+  text-align: center;
+  /* background-color: #12459e; */
+  /* outline: 1px solid #fff; */
+}
+
+.navbar li:first-child {
+  margin-right: auto;
+}
+
+.navbar li a {
+  display: block;
+  text-decoration: none;
+  line-height: 1.75em;
+  padding: 1em;
+  color: black;
+}
+
+h1 {
+  color: black;
+}
+
+/* content */
+
+.item-list {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.item-cell {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 1;
+  /* 宽度 */
+  width: 20em; 
+  padding: 1em;
+  margin: 1em;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.8);
+  transition: all 0.2s ease;
+}
+
+.item-cell > h2 {
+  font-family: Franklin Gothic, sans-serif;
+  font-size: 1.25em;
+  margin: 0 0 .5em 0;
+}
+
+.item-cell-text {
+  margin: .5em 0;
+}
+
+.item-cell-text > p {
+  text-align: left;
+  margin: 0 0 .5em;
+}
+
+.item-cell > img {
+  width: 100%;
+  min-height: 0; /* 旧的BUG：解决 Flexbox 列布局中图像宽高比不正常问题 */
+  order: -1;
+  margin: 0 0 .5em 0;
+}
+
+.item-cell-more {
+  margin-top: auto;
+}
+
+.item-cell-more > a {
+  display: block;
+  border-radius: .5em;
+  background-color: #c56d8b;
+  font-family: Franklin Gothic, sans-serif;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  padding: .25em;
+}
+
+.item-cell:hover {
+  background-color: rgba(255, 255, 255, 1);
+	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25), 0 0 0.5em 0 #3372a0;
+}
+
+/* detail view */
+
+.detail-view {
+  display: none;
+  opacity: 0;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  transition: all 0.8s ease;
+}
+
+.detail-view::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.65;
+}
+
+.detail-content {
+  height: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+.detail-content::before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+.detail-content > img {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+body.iscovered header, body.iscovered main {
+  -webkit-filter: blur(3px);
+          filter: blur(3px);
+}
